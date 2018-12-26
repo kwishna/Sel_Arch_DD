@@ -1,0 +1,705 @@
+First We Create A Maven Project.
+Added The Packages. Like, 
+	base		: 
+	utility 	:
+	testcases 	:
+	listeners	:
+
+Some Resource Packages Like,
+	excel 		:
+	executables :
+	logs		:
+	properties	:
+	runners		:
+
+Then, We Add Dependencies :
+  	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>4.0.6</version>
+</dependency>
+
+  <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+<dependency>
+    <groupId>org.uncommons</groupId>
+    <artifactId>reportng</artifactId>
+    <version>1.1.4</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.google.inject/guice -->
+<dependency>
+    <groupId>com.google.inject</groupId>
+    <artifactId>guice</artifactId>
+    <version>3.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/velocity/velocity-dep -->
+<dependency>
+    <groupId>velocity</groupId>
+    <artifactId>velocity-dep</artifactId>
+    <version>1.4</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/velocity/velocity -->
+<dependency>
+    <groupId>velocity</groupId>
+    <artifactId>velocity</artifactId>
+    <version>1.4</version>
+</dependency>
+
+ <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.1</version>
+</dependency>
+
+ <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.11.1</version>
+</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.6.2</version>
+</dependency>
+  	
+  	<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail 
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.2</version>
+</dependency>
+  	-->
+  	
+  	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.13</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+
+Then, Add surefire plugin
+<build>
+    <sourceDirectory>src</sourceDirectory>
+  	<plugins>
+      
+      <plugin>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.22.1</version>
+
+			<configuration>
+                   <!-- TestNG Suite XML files list for test execution -->
+                   <suiteXmlFiles>
+                       <suiteXmlFile>testng.xml</suiteXmlFile>
+                   </suiteXmlFiles>
+                   
+                   <skipTests>false</skipTests>
+                   <testFailureIgnore>true</testFailureIgnore>
+                   <forkMode>once</forkMode>
+               </configuration>
+		</plugin>
+		
+    </plugins>
+  </build>	
+  We Can Add bonigarcia WebdriverManager Dependency And Get Rid Of Downloading drivers For Each Browsers.
+  Simply Write, WebDriverManager.chromedriver().setup();
+  				WebDriverManager.firefoxdriver().setup();
+  				WebDriverManager.operadriver().setup();
+  				WebDriverManager.phantomjs().setup();
+  				WebDriverManager.edgedriver().setup();
+  				WebDriverManager.iedriver().setup();
+  	WebDriver driver = new FirefoxDriver();
+  
+ Now, Create log Files & Properties Files In log package & properties package Under resources
+ Create An Excel File And Save It In excel Package.
+ Now, Create A Class In base Package Where We Will Initialize Everything Like:
+ 		 WebDriver, Properties, Logs, ExtentReports, DB, Excel, Mails. Ex. TestBase.java
+ Initialize System Property, Properties Files & drivers As Per The Browser. Also, Set Implicitly Wait Time.
+ Now, Create A TestCase. Ex. TestCase1.java Inside testcase package;
+ REMEMBER : EACH TESTCASE CLASS MUST EXTEND INITIALIZER CLASS IN WHICH DRIVER IS INITIALIZED.
+ Convert It To A TestNG Project, Set Suite Name, Test Name, Add All The Classes in testng.xml.
+ 
+ Now, Let's Go To Logs Part.
+ Learn About log4j Property File : https://www.journaldev.com/10698/log4j-properties-file-example
+ We Need A log4j.properties File. With The Exactly Same Name. Inside The Root Folder i.e Project Folder.
+ 
+ 
+Note : Selenium Version 2.53.0 Can Only Generate Selenium logs. Latest Version May Only Generate User Logs.
+Also, Use 1.2.17 Version Of log4j To Work With Below Configuration.
+Now, Write Configuration Inside log4j.properties File :-
+
+log4j.rootCategory=ALL, console, file
+#Define console appender Is Used To Append Logs On Console
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+#log4j.appender.console.Target=System.out
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=%-5p %c{1} - %m%n
+
+#RollingFile Appender Is Used To Append Loggers In A File
+log4j.appender.file=org.apache.log4j.RollingFileAppender
+log4j.appender.file.File=F:\\ABD\\Eclipse\\Eclipse_Works\\datadriven\\src\\test\\resources\\logs\\Application.log
+log4j.appender.file.maxFileSize=5000KB
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%x %p %t - %d{yyyy-MM-dd HH:mm:ss.SSS}; - %c - %m%n
+log4j.appender.file.Append=false
+
+#Application Logs
+log4j.logger.devpinoyLogger=ALL, dest1
+log4j.appender.dest1=org.apache.log4j.RollingFileAppender
+log4j.appender.dest1.maxFileSize=5000KB
+log4j.appender.dest1.layout=org.apache.log4j.PatternLayout
+log4j.appender.dest1.layout.ConversionPattern=%x %p %t - %d{yyyy-MM-dd HH:mm:ss.SSS}; - %c - %m%n
+log4j.appender.dest1.File=F:\\ABD\\Eclipse\\Eclipse_Works\\datadriven\\src\\test\\resources\\logs\\Selenium.log
+log4j.appender.dest1.Append=false
+
+After This, We Need A Logger Class In Our Main Base Class,
+public static final Logger logger = Logger.getLogger("devpinoyLogger");
+ "log4j.properties" Or "log4j.xml" Must Be Inside Resources Folder Of Test. File Name Cannot Be Changed.
+ In Latest Version, Configuration File Must be Saved With "log4j2" Name.
+ https://stackoverflow.com/questions/49488116/log4j2-not-writing-in-file-when-using-a-separate-class
+-----------------------------------------------------------------------------------------------------------
+Configuration File Reader Class:
+Create A Configuration Reader Class Inside Utility Package. getValue & setValue Methods.
+public class PropertyReader{
+	public static Properties getPropertyReader(String propertyFilePath) throws FileNotFoundException, IOException {
+		Properties prop = new Properties();
+		prop.load(new FileInputStream(new File(propertyFilePath)));
+		return prop;
+	}
+In BaseClass : config = PropertyReader.getPropertyReader(path);
+			   config.getProperty("key");
+-----------------------------------------------------------------------------------------------------------
+Assertions:-
+On Each Action, Particular Page Opens Then We Should Assert That Correct Page Is Open Or Not.
+For That We Require Assertions.
+Assert.assertTrue(driver.getTitle().equalsIgnoreCase("facebook"));
+Or, We Can Check For The Presence Of An Element Of Opening Class.
+We Will Create A Method In BaseTest Class boolean isElementPresent(By by).
+We Will Pass A By Object In It And We Will Operate findElement(by) : If It Throws Exception Then Element Not Available.
+We Will Return True If Exception Doesn't Come.
+LEARN : GO TO ANY TESTNG JAR FILE IN BUILD PATH THEN CLICK EDIT AND ADD JAVA DOC FILE TO GET DOCUMENTATION ON HOVERING OVER
+ANY WORD OF CLASSES & OBJECTS OF TESTNG.
+System.getProperty("user.dir"); // It Gives Us Root File Of Our Project.
+------------------------------------------------------------------------------------------------------------
+ExcelReader :
+
+Constructor - public ExcelReader(String excelPath) {
+		File f = new File(excelPath);
+		fin = new FileInputStream(f);
+		workbook = new XSSFWorkbook(fin);
+		
+Method : sheet = workbook.getSheet(sheetName);
+		 int rowCount = sheet.getPhysicalNumberOfRows();
+		 Object[][] data = new Object[rowCount-1][];
+		 for(int i=1; i<rowCount; i++) {
+			row = sheet.getRow(i);
+			int cellCount = row.getPhysicalNumberOfCells();
+			data[i-1] = new Object[cellCount];
+			for(int j=0; j<cellCount; j++) {
+				cell = row.getCell(j);
+				data[i-1][j] = cell.getStringCellValue();
+			}	
+	}	return data;
+------------------------------------------------------------------------------------------------------------
+DataProviders:
+Create A Class ExcelReader. Inside The Constructor, Do All Operations For FileInputStream & Workbook. Either
+Take ExcelPath Directly In This Class Using PropertyReader class Method Or Get From Other Class From
+Constructor If There Are Many ExcelPaths.
+Create A Method Which Provides All The Data From Excel In A 2 Dimensional Object Array.
+Object[][]=new Object[rowCount][];
+for loop,
+	Object[i] = Object[colCount];
+
+Now, Create a DataProvider Method Which Will Call The Main Method To Get The Data & Send.
+VERY IMPORTANT :-
+1) IF DATAPROVIDER IS IN DIFFERENT CLASS THEN IT MUST BE A static METHOD.
+2) MENTION CLASS NAME IN @Test(dataProvider = "create", dataProviderClass = StaticProvider.class)
+https://stackoverflow.com/questions/43715789/how-to-use-dataprovider-present-in-different-class
+To Provide Data To More Than One @Test Using Single Data Provider.
+	@DataProvider(name="dynamic")
+	public static Object[][] dataForAnyTestCase(Method m){
+		String methodName = m.getName();
+		System.out.println(m);
+		if(methodName.equalsIgnoreCase("login")){
+		return DataGenerator.getExcelValue("Login"); //"Login" Is SheetName 
+		}
+		else if(m.getName().equalsIgnoreCase("register")){
+			return DataGenerator.getExcelValue("Register"); //"Register" Is SheetName
+		}
+}
+-------------------------------------------------------------------------------------------------------------
+ReportNG:
+Add Jar Files Like : guice, velocity, reportng, velocity-dep
+Now, Inside testng.xml File, Add Listeners..
+<listeners>
+	<listener class-name="org.uncommons.reportng.HTMLReporter" />
+ 	<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+</listeners>
+Run The Program, inside test-output folder get an html folder in which index.html files is repotng result file.
+Now,
+There Is A Reporter Class Which Contains Some static Method Which Can Be Used To Change ReportNG Result.
+Like :  1) If You Write Reporter.log("Successful") Inside The Test Case Methods
+	It Will Generate A Message In index.html File Of ReportNG In Front Of The Respective TCs.
+		2) To Generate Screenshot In ReportNG index.html File
+Write System.setProperty("org.uncommons.reportng.escape-output", "false"); In Beginning Of The Test Case. This Will
+Convert <a href=\"screenshotlocation\">Screenshot</a> Into Image Inside ReportNG Report File.
+Then, Write Reporter.log("<a href=\"screenshotlocation\">Screenshot</a>") : This Will Add A Link Of Screenshot.
+
+Screenshot Is preferred To Be Attached Only In Failed Test Cases. But, We Don't Know Which Test Case Will Fail.
+One Way To Check Is Put try catch Block In Each Test Case & Do Some Action Inside Catch Block. But, It's Not Good.
+
+So, For That We Will Use Custom Listeners Where We Will Implement The Actions Which Will Be Taken When An Event
+Occurs.
+Create a Class CustomListeners & Implement ITestLister. Implement All The Methods.
+Latest Version Of TestNG Doesn't Let ITestListener Implement. Alert!
+Don't Put reportng in pom.xml, it will fetch latest TestNG Which Is Not Supported.
+Reportng dependencies should be in pom.xml 
+Hence Put Like :
+<dependency>
+        <groupId>org.uncommons</groupId>
+        <artifactId>reportng</artifactId>
+        <version>1.1.2</version>
+        <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+On Implementing ITestListener 
+Methods Are : onTestSuccess, onTestFailure, onTestStart, onTestFinish, onTestSkipped etc
+Now, inside onTestFailure() Method, Write Code :
+System.setProperty("org.uncommons.reportng.escape-output", "false");
+Reporter.log("Test Case Failed!");
+Reporter.log("<a target="blank_"href=\"screenshotlocation\">Screenshot</a>");
+
+IMPORTANT : After Implementing Add This Class In testng File As Listener Class.
+<listener class-name="com.abd.listerners.CustomListeners"/>
+---------------------------------------------------------------------------------------------------------------
+Maven: Very Important & Tricky
+Instead Of Running Our Test Using tesng.xml, We Should Run It With pom.xml.
+For That We Need To Add surefire plugin, All Dependencies In It.
+Read : https://solidsoft.wordpress.com/2011/01/23/better-looking-html-test-reports-for-testng-with-reportng-maven-guide/
+BELOW IS VALID FILE :-
+ <build> 
+ 	<plugins> 
+ 		<plugin> 
+ 			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-surefire-plugin</artifactId>
+ 			<version>2.19.1</version>
+ 			<configuration>
+                   <!-- TestNG Suite XML files list for test execution -->
+                   <suiteXmlFiles>
+                       <suiteXmlFile>testng.xml</suiteXmlFile>
+                   </suiteXmlFiles>
+                   
+                   <skipTests>false</skipTests>
+                   <testFailureIgnore>false</testFailureIgnore>
+                   <forkMode>once</forkMode>
+                   
+                   	<properties>
+                    	<property>
+                        	<name>usedefaultlisteners</name>
+                        	<value>false</value>
+                    	</property>
+                    	
+                    	<property>
+                        	<name>listener</name>
+                        	<value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                    	</property>
+                	</properties>
+                
+               			<workingDirectory>target/</workingDirectory> 
+           			</configuration>
+           		</plugin>
+           		
+           		<plugin>
+          			 <groupId>org.apache.maven.plugins</groupId>
+    				 <artifactId>maven-surefire-report-plugin</artifactId>
+    				 <version>2.19.1</version>
+          		</plugin>
+          		
+        		<plugin>
+            		<groupId>org.apache.maven.plugins</groupId>
+            		<artifactId>maven-compiler-plugin</artifactId>
+           			<version>3.5.1</version>
+            		<configuration>
+                		<source>1.7</source>
+                		<target>1.7</target>
+            		</configuration>
+        		</plugin>
+       	</plugins>
+       	
+       <testResources>
+       		<testResource>
+       			<directory>/datadriven/src/test/resources</directory>
+       			<includes>
+       				<include>log4j.properties</include>
+       				</includes>
+       		</testResource>
+       	</testResources>
+</build>
+ 
+<dependencies>
+
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.14.3</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.uncommons</groupId>
+    <artifactId>reportng</artifactId>
+    <version>1.1.2</version>
+    <scope>test</scope>
+    	<exclusions>
+            <exclusion>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+            </exclusion>
+        </exclusions>
+</dependency>
+
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-server</artifactId>
+    <version>3.6.0</version>
+</dependency>
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.7.25</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.15</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.15</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>2.6.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.google.inject</groupId>
+    <artifactId>guice</artifactId>
+    <version>4.2.0</version>
+</dependency>
+  	
+<dependency>
+    <groupId>com.relevantcodes</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>2.41.2</version>
+</dependency>
+
+<!--  	Latest Version
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>4.0.6</version>
+</dependency>
+-->
+  
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.1</version>
+</dependency>
+
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+  	
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.6.2</version>
+</dependency>
+  	
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.2</version>
+</dependency>
+  	
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.13</version>
+</dependency>
+
+</dependencies>  	
+----------------------------------------------------------------------------------------------------------
+Now, Create A Class For Screenshot Capturing. Call It Inside Failed TestCases.
+Inside Screenshot Class Set public static final Path For Screenshot
+Then Create A Variable In Which We Will Set Screenshot Name.
+For Unique Name, We Will Create A Date Object And Set It As Screenshot Name.
+String date = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss.SSS").format(new Date()); //ScreenshotUtils
+ScreenshotUtils.takeScreenshotNow(date);
+
+Inside ScreenshotUtils :-
+public static void takeScreenshotNow(String l) {
+	String name = l.toString();
+	String screenshotPath = config.getProperty("screenshotpath");
+	screenshotName = "Bug_" + name + ".jpeg";
+	File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+	File destFile = new File(screenshotFile);
+	FileUtils.copyFile(srcFile, destFile);
+
+We Will Pass This Date From CustomListener Class To Screenshot Capture Method.
+Inside Screenshot Capture Method We Will Save The Screenshot.
+now, Inside CustomListener testFailure Method: We Will Write
+System.setProperty("org.uncommons.reportng.escape-output", "false");
+then,
+Call Screenshot Capture Method.
+Reporter.log("<a target=\"_blank\" href="+ScreenshotUtils.screenshotPath+ScreenshotUtils.screenshotName+">" + "Screenshot"+"</a>");
+---------------------------------------------------------------------------------------------------------
+Extent Report :
+http://testingalert.com/html-reporting-using-extent-reporting/
+
+Create A ExtentReportManager Class Where We Will Instantiate ExtentReports & ExtentTest.
+Create ExtentReport Object in getInstance() Method. As
+	new ExtentReports("html File Location Where Report Will Be Generated", boolean Overwrite Report)
+	then extent.loadConfig(configuration File in XML);
+The Above Line Load The Configuration File For Extent Report. extent.loadConfig("File Location");
+return the Object. //In WebDriver Also, We Should Create Object Like This. Better Way
+
+Create A extent report configuration file : extent_config.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+  <configuration>
+    <encoding>UTF-8</encoding>
+    <!-- protocol for script and stylesheets -->
+    <!-- defaults to https -->
+    <protocol>https</protocol>
+    <!-- standard, dark -->
+    <theme>dark</theme>
+    <documentTitle>#Project</documentTitle>
+    <reportName> API Automation Report</reportName>
+    <reportHeadline></reportHeadline>
+    <!-- defaults to yyyy-MM-dd -->
+    <dateFormat>yyyy-MM-dd</dateFormat>
+    <!-- defaults to HH:mm:ss -->
+    <timeFormat>HH:mm:ss</timeFormat>
+    <!-- custom javascript -->
+    <scripts>
+      <![CDATA[
+      $(document).ready(function() {
+      });
+      ]]>
+    </scripts>
+    
+    <scripts>
+      <![CDATA[
+       $(document).ready(function() {
+             $('.dashboard-view').click();
+       });
+	]]>
+    </scripts>
+    <!-- custom styles -->
+    <styles>
+      <![CDATA[           
+      ]]>
+    </styles>
+  </configuration>
+</extentreports>
+
+Now, Inside TestBase, We Will Get Its Object.
+ExtentTest Is Required To Write Logs In Report. Kind Of Log Is Addressed By LogStatus enum.
+Now, Inside CustomListener, test = extent.startTest(onStartTest argument.getName()); Method. We Will Initialize ExtentTest test Object.
+Which Is Already Declared In TestBase File. 
+Now, Inside onTestPass, test.log(LogStatus.PASS, result.getName().toUpperCase()+" PASSED"); //Extent Report
+		TestBase.ex.endTest(tes); //Extent Report
+		TestBase.ex.flush();
+Similarly, Inside onTestFail & onTestSkip.
+Now, We Can Use ExtentTest Object In Any Class To Log Any Message That Will Appear In Report.
+Using. Using log We Can Attach Screenshot File Also.
+TestBase.tes.log(LogStatus.FAIL, test.addScreenCapture(ScreenshotUtils.screenshotFile))
+We Can Create Our Custom click(), sendKeys() Method In Which We Will Put ExtentTest logs.
+Since, Logs Are Preset For Every Click & SendKeys. They Will Print In Reports.
+------------------------------------------------------------------------------------------------------------------
+We Can Create Separate WebDriverHandler Class From Where We Will get driver Instance Wherever Required
+public static WebDriver getDriver(String browser) {
+		if(browser!=null && driver==null)
+		switch(browser) {
+		
+		case "chrome" :// WebDriverManager.chromedriver().setup(); 
+						System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+						driver = new ChromeDriver();
+		break;
+	return driver;
+	} }
+
+Similarly,
+Separate Class For DataProvider. Where We Will Fetch Data From ExcelReader Class And Send To @Test
+Using DataProvider Method.
+Put @DataProvider(name="something") 
+&
+@Test(dataProvider="something", dataProviderClass=DataProvider.class)
+
+-------------------------------------------------------------------------------------------------
+Extent Report Log For Each Action :-
+Now, Inside TestBase class We Can Create custom Methods For Each Action,
+Like click(Locator l){}, enterValue(Locator){} For sendKeys. select(locator, option){}
+Inside These Methods We Will Put tes.log(LogStatus.INFO, "Clicking" Or "Entering" Or "Selecting")
+This Way, extend report will show log For each action when we will call these methods instead of
+driver.findElement(By.locator).click(); // These Lined Will Be Inside Custom Methods.
+This Will Decrease Our Code Size Also.
+Example :-
+For Selection : Custom Method :-
+public static void select(String locator, String value) {
+		if(locator.contains("_CSS")) {
+			element = driver.findElement(By.cssSelector(or.getProperty(locator)));
+			tes.log(LogStatus.INFO, "Selecting "+value+" In "+locator);
+		}
+		else if(locator.contains("_XPATH")) {
+			element = driver.findElement(By.cssSelector(or.getProperty(locator)));
+			tes.log(LogStatus.INFO, "Selecting "+value+" In "+locator);
+		}
+		else if(locator.contains("_ID")) {
+			element = driver.findElement(By.cssSelector(or.getProperty(locator)));
+			tes.log(LogStatus.INFO, "Selecting "+value+" In "+locator);
+		}
+			Select s = new Select(element);
+//			s.selectByVisibleText(value);
+			List<WebElement> web = s.getOptions();
+			List<String> options = new ArrayList<String>();
+			for(WebElement w :  web) {
+				if(w.getText().equalsIgnoreCase(value)) {
+					s.selectByVisibleText(value);
+				}
+				options.add(w.getText()); //option is now String value of all the Options in Drop-down
+			}	}
+
+-------------------------------------------------------------------------------------------------------------
+Now, Test Suite Through Excel Sheet :-
+We Will Write TestCase Method Names In One Column & Y/N Is Corresponding Column.
+We Can Create A Method Inside ExcelReader read(sheetName, col, row) Which Will Get Us Data From a Cell
+Of A Particular Sheet.
+By Reading These Data We Will Run Only Those Test Cases Which Has Value 'Y'. & Skip All 'N' Test Cases.
+Create A Method Inside ExcelReader In Which TestCase Name & TestSheet Will Be Sent.
+Method isRunnable(testcase, sheetName) Will Return A Boolean Value For Each Test Case. Whether To Run Or Not.
+For This, We Will Go To CustomListener, Inside onStartTest(), We Will Call isRunnable Method. If It Is Not True
+We Will Throw a new SkipException. Don't Surround With Try Catch Here.
+	public static boolean isRunnable(String testCaseName, String sheetName) {
+		boolean flag = false;
+		String permisson;
+		XSSFSheet s = workbook.getSheet(sheetName);
+		int rowCount = s.getPhysicalNumberOfRows();
+		HashMap<String, String> test = new HashMap<String, String>();
+		for(int k=1; k<rowCount; k++) {
+			test.put(excelRead(k, 0, sheetName), excelRead(k, 1, sheetName));
+		}
+		Set<String> keyset = test.keySet();
+		if(keyset.contains(testCaseName)) {
+			permisson = test.get(testCaseName);
+			if(permisson.equalsIgnoreCase("Y")) {
+				flag=true;
+			} }
+		return flag; }
+
+Similarly, Some Particular Parametrization Data Can Be Skipped.
+Just Add Run Mode : Y Or N In Front Of The Data Which Needs To Be Skipped.
+Now, Increase One More Argument Inside The @Test Method Which Is Receiving The Data.
+So, Newly Added Parameter Will Give Y Or N. Now, Under If Value Is N, throw new SkipException. 
+if(runMode.equalsIgnoreCase("N")) {
+			throw new SkipException("Skipping This Data As Runmode Is N");
+		}
+--------------------------------------------------------------------------------------------
+Enhancement : Parametrization In DataProvider.
+Many A Times We Will Need To Send Data For All The Fields In A WebPage. That Will Count More Than 10-15
+So, We Will Need To Create A Test Method With 10-15 Arguments. And These Data Will Be Provided By DataProvider.
+To Escape 10-15 Method Parameters Inside A Test Method. We Will Simply Pass A Hashtable<String, String>,
+In Which Value Mapped With Each FieldName Of webpage As Key Will Be Send. Now, Inside The Test Case Method,
+Just fetch The Value By Using hash.getValue(key); Method & Use It For Testing.
+For This, We Will Create A new Method In ExcelReader Class Where It Will Send Object[][] Containing Hashtable.
+new Object[rowCount-1][1] : This 2D Array Has rowCount-1 Hashtables In It.
+	public static Object[][] excelReadWithHashtable(String sheetName) {
+//		new ExcelReader(config.getProperty("excelfilepath")); //Creating Object Of ExcelReader;
+		sheet = workbook.getSheet(sheetName);
+		int rowCount = sheet.getPhysicalNumberOfRows();
+		Object[][] data = new Object[rowCount-1][1];
+		Hashtable<String, String> hash = null;
+		for(int i=1; i<rowCount; i++) {
+			XSSFRow r = sheet.getRow(i);
+			int colCount =  r.getPhysicalNumberOfCells();
+			hash = new Hashtable<String, String>();
+			for(int j=0; j<colCount; j++) {
+				String x = excelRead(0, j, sheetName); //excelRead Is Already A Method In ExcelReader To
+				String y = excelRead(i, j, sheetName); //Fetch Data From A Particular Cell Of A Sheet.
+				hash.put(x, y);
+			}	
+			data[i-1][0] = hash;
+			System.out.println();
+		}
+		  return data; } 
+------------------------------------------------------------------------------------------------------
+Jenkins :
+
+Download war File
+cmd:// Go To Jenkins File Path java -jar jenkins.war
+Run Jenkins.war In cmd As Path:/ java -jar "jenkins.war" --httpPort9090 or simply java -jar jenkins.war
+Go To localhost:9090 --- If httpPort Not Provided During Running Then 8080 Is Default Port
+Sign In Using Password
+Create Ur Admin Profile
+Install Plugins : Github
+Go To Manage Plugins > Available > Install Maven Integeration
+Manage Plugins > Global Configuration > Set Up Path For All Plugins > Apply > Save
+
+Now Create Job For Jenkins
+Homepage > Create Job > Provide Name > Click Maven Project > Click Ok
+Dashbiard > Go Inside Your Project :
+Configure > Source Code Managment > Git > Repository URL & Credentials
+Build > Actual Path Of pom.xml. Also Give "clean test"
+
+Save
+Now, Go TO DashBoard & Schedule The Job.
+
+
+
+
+
+
+
+
+
+
