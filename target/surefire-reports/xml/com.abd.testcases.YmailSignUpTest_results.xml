@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Yahoo Sign Up Test"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="18.351">
+  <properties />
+  
+  
+            <testcase name="ymailSignUp" time="5.058" classname="com.abd.testcases.YmailSignUpTest" />
+                <testcase name="ymailSignUpWithHashTable" time="3.875" classname="com.abd.testcases.YmailSignUpTest" />
+                <testcase name="ymailSignUpWithHashTable" time="3.267" classname="com.abd.testcases.YmailSignUpTest" />
+                <testcase name="ymailSignUp" time="6.151" classname="com.abd.testcases.YmailSignUpTest" />
+      
+</testsuite>

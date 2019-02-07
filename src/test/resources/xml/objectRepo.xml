@@ -1,0 +1,17 @@
+<locators>
+	<homepage>
+		<header>
+		  	 <username>
+				<css>.usercss</css>
+				<xpath>div[@name='user']</xpath>
+				<id>#userid</id>
+			</username>
+
+			<password>
+				<css>.passcss</css>
+				<xpath>input[@class='email']</xpath>
+				<id>#passid</id>
+			</password>
+		</header>
+	</homepage>
+</locators>
