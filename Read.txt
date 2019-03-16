@@ -605,7 +605,7 @@ The parallel attribute on the <suite> tag can take one of following values:
 ##	
 @Test(threadPoolSize = 3, invocationCount = 10,  timeOut = 10000)
 public void testServer() {	...	}
-In this example, the function testServer will be invoked ten times from three different threads.
+In this example, the function testServer() will be invoked ten times from three different threads.
 Additionally, a time-out of ten seconds guarantees that none of the threads will block on this thread forever.	
 
 ##Running Failed TestCases :-
@@ -642,7 +642,18 @@ public class TestclassSample {
   }
 }
 
--------------------------------------------------------------------------------------------------------------
+Now, If There Are Many Test Cases In The Suite. It Is Not Easy Or Good Practice To Write retryAnalyzer
+In Each Test Case. Hence, To Make Changes Inside Any Annotation At Runtime, We Need To Implement IAnnotationTransformer.
+
+public class Transformer implements IAnnotationTransformer{
+
+	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+	
+		annotation.setRetryAnalyzer(MyRetry.class);		
+	}
+}
+Note :- Add This Class To <listeners><listener>
+----------------------------------------------------------------------------------------------------------------------
 #TestNG : https://testng.org/doc/documentation-main.html
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite">
@@ -727,7 +738,7 @@ public class Test1 {
 		testng.run();
 		
 		
-#TestNG Maven Plugin :-
+#TestNG Maven Plugin For Multiple Suites:-
 <plugin>
    <artifactId>maven-surefire-plugin</artifactId>
    <configuration>
@@ -1540,11 +1551,23 @@ Go To cmd & Run : allure server {{Location Of allure-results}}
 Finish!
 Read More : https://docs.qameta.io/allure/
 --------------------------------------------------------------------------------------------
+Java AWT Clipboard Text Set & Paste :
 
+	StringSelection user = new StringSelection("RajKuc");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(user, null);
+--------------------------------------------------------------------------------------------
+Key-Board & Mouse Interface :
 
+org.openqa.selenium.interactions package <- Learn
 
+Keyboard keyboard = ((HasInputDevices) driver).getKeyboard();
+Mouse mouse = ((HasInputDevices) driver).getMouse();
+TouchScreen touch = ((HasTouchScreen) driver).getTouch();
 
-
+Coordinates co = ((Locatable) element).getCoordinates();
+Point p = co.onPage();
+System.out.println("X ::::::::::::::::::: "+p.getX());
+System.out.println("Y ::::::::::::::::::: "+p.getY());
     
 
 

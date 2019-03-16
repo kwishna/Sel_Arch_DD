@@ -1,26 +1,29 @@
-INFO  | 2019-01-16 20:45:55.809 | [main] | [com.abd.base.TestBase.setUp(TestBase.java:134)evel] devpinoyLogger - Implicitly Wait 10 Seconds 
-INFO  | 2019-01-16 20:45:59.367 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:21)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
-INFO  | 2019-01-16 20:45:59.449 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:24)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
-INFO  | 2019-01-16 20:46:03.913 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:21)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
-INFO  | 2019-01-16 20:46:03.933 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:24)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
-INFO  | 2019-01-16 20:46:08.972 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:55)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
-INFO  | 2019-01-16 20:46:09.023 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:58)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
-INFO  | 2019-01-16 20:46:12.778 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:55)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
-INFO  | 2019-01-16 20:46:12.818 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:58)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
-INFO  | 2019-01-16 20:46:17.982 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:18)evel] devpinoyLogger - Navigating To http://www.facebook.com 
-INFO  | 2019-01-16 20:46:24.063 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:30)evel] devpinoyLogger - Navigating To https://pin.it 
-INFO  | 2019-01-16 20:46:24.097 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:35)evel] devpinoyLogger - Asserting Pinterest Homepage 
-INFO  | 2019-01-16 20:46:29.001 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:34)evel] devpinoyLogger - Navigating To Amazon Urlhttp://www.amazon.com 
-INFO  | 2019-01-16 20:46:29.001 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:40)evel] devpinoyLogger - FluentWait For Amazon Search Box. Though, Not Required 
-INFO  | 2019-01-16 20:46:29.134 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:55)evel] devpinoyLogger - Verifying Title In Amazon Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more 
-INFO  | 2019-01-16 20:46:33.723 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:58)evel] devpinoyLogger - Selecting Dropdown Value In Amazon Electronics 
-INFO  | 2019-01-16 20:46:33.950 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:59)evel] devpinoyLogger - Entering Search Value In Amazon Apple Laptops 
-INFO  | 2019-01-16 20:46:37.663 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:60)evel] devpinoyLogger - Clicking Search Button In Amazon  
-WARN  | 2019-01-16 20:46:37.704 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:28)evel] devpinoyLogger - Skipping This Amazon Search Data Doll 
-INFO  | 2019-01-16 20:46:39.556 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:34)evel] devpinoyLogger - Navigating To Amazon Urlhttp://www.amazon.com 
-INFO  | 2019-01-16 20:46:39.556 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:40)evel] devpinoyLogger - FluentWait For Amazon Search Box. Though, Not Required 
-INFO  | 2019-01-16 20:46:39.635 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:55)evel] devpinoyLogger - Verifying Title In Amazon Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more 
-INFO  | 2019-01-16 20:46:42.886 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:58)evel] devpinoyLogger - Selecting Dropdown Value In Amazon Luggage 
-INFO  | 2019-01-16 20:46:43.113 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:59)evel] devpinoyLogger - Entering Search Value In Amazon Bag 
-INFO  | 2019-01-16 20:46:49.948 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:60)evel] devpinoyLogger - Clicking Search Button In Amazon  
-INFO  | 2019-01-16 20:46:52.175 | [main] | [com.abd.base.TestBase.tearDown(TestBase.java:252)evel] devpinoyLogger - Test Completed. Browser Closed 
+INFO  | 2019-02-28 02:35:08.994 | [main] | [com.abd.base.TestBase.setUp(TestBase.java:134)evel] devpinoyLogger - Implicitly Wait 10 Seconds 
+INFO  | 2019-02-28 02:35:18.486 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:21)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
+INFO  | 2019-02-28 02:35:18.520 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:24)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
+INFO  | 2019-02-28 02:35:33.433 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:21)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
+INFO  | 2019-02-28 02:35:33.455 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUp(YmailSignUpTest.java:24)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
+ERROR | 2019-02-28 02:35:44.569 | [main] | [com.abd.utilities.ScreenshotUtils.takeScreenshotNow(ScreenshotUtils.java:23)evel] devpinoyLogger - Capturing Screenshot. Test Case Failed 
+INFO  | 2019-02-28 02:35:45.475 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:55)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
+INFO  | 2019-02-28 02:35:45.496 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:58)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
+ERROR | 2019-02-28 02:35:56.427 | [main] | [com.abd.utilities.ScreenshotUtils.takeScreenshotNow(ScreenshotUtils.java:23)evel] devpinoyLogger - Capturing Screenshot. Test Case Failed 
+INFO  | 2019-02-28 02:35:57.129 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:55)evel] devpinoyLogger - Trying To Open Yahoo Login Page 
+INFO  | 2019-02-28 02:35:57.144 | [main] | [com.abd.testcases.YmailSignUpTest.ymailSignUpWithHashTable(YmailSignUpTest.java:58)evel] devpinoyLogger - Yahoo Login Page Opens Succesfully! 
+ERROR | 2019-02-28 02:36:08.021 | [main] | [com.abd.utilities.ScreenshotUtils.takeScreenshotNow(ScreenshotUtils.java:23)evel] devpinoyLogger - Capturing Screenshot. Test Case Failed 
+INFO  | 2019-02-28 02:36:14.119 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:18)evel] devpinoyLogger - Navigating To http://www.facebook.com 
+INFO  | 2019-02-28 02:36:19.584 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:30)evel] devpinoyLogger - Navigating To https://pin.it 
+INFO  | 2019-02-28 02:36:19.608 | [main] | [com.abd.testcases.LoginTest.test_valid_login(LoginTest.java:35)evel] devpinoyLogger - Asserting Pinterest Homepage 
+INFO  | 2019-02-28 02:36:24.329 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:34)evel] devpinoyLogger - Navigating To Amazon Urlhttp://www.amazon.com 
+INFO  | 2019-02-28 02:36:24.330 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:40)evel] devpinoyLogger - FluentWait For Amazon Search Box. Though, Not Required 
+INFO  | 2019-02-28 02:36:24.418 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:55)evel] devpinoyLogger - Verifying Title In Amazon Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more 
+INFO  | 2019-02-28 02:36:27.578 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:58)evel] devpinoyLogger - Selecting Dropdown Value In Amazon Electronics 
+INFO  | 2019-02-28 02:36:27.722 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:59)evel] devpinoyLogger - Entering Search Value In Amazon Apple Laptops 
+INFO  | 2019-02-28 02:36:30.164 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:60)evel] devpinoyLogger - Clicking Search Button In Amazon  
+WARN  | 2019-02-28 02:36:30.204 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:28)evel] devpinoyLogger - Skipping This Amazon Search Data Doll 
+INFO  | 2019-02-28 02:36:32.572 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:34)evel] devpinoyLogger - Navigating To Amazon Urlhttp://www.amazon.com 
+INFO  | 2019-02-28 02:36:32.572 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:40)evel] devpinoyLogger - FluentWait For Amazon Search Box. Though, Not Required 
+INFO  | 2019-02-28 02:36:33.360 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:55)evel] devpinoyLogger - Verifying Title In Amazon Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more 
+INFO  | 2019-02-28 02:36:34.532 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:58)evel] devpinoyLogger - Selecting Dropdown Value In Amazon Luggage 
+INFO  | 2019-02-28 02:36:34.626 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:59)evel] devpinoyLogger - Entering Search Value In Amazon Bag 
+INFO  | 2019-02-28 02:36:37.577 | [main] | [com.abd.testcases.AmazonTest.amazonSearchTest(AmazonTest.java:60)evel] devpinoyLogger - Clicking Search Button In Amazon  
+INFO  | 2019-02-28 02:36:39.949 | [main] | [com.abd.base.TestBase.tearDown(TestBase.java:252)evel] devpinoyLogger - Test Completed. Browser Closed 

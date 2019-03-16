@@ -4,14 +4,14 @@
            failures="0"
            errors="0"
            skipped="1"
-           time="25.645">
+           time="17.834">
   <properties />
   
             <testcase name="amazonSearchTest" time="0.0" classname="com.abd.testcases.AmazonTest">
           <skipped />
     </testcase>
   
-            <testcase name="amazonSearchTest" time="13.438" classname="com.abd.testcases.AmazonTest" />
-                <testcase name="amazonSearchTest" time="12.206" classname="com.abd.testcases.AmazonTest" />
+            <testcase name="amazonSearchTest" time="7.326" classname="com.abd.testcases.AmazonTest" />
+                <testcase name="amazonSearchTest" time="10.508" classname="com.abd.testcases.AmazonTest" />
       
 </testsuite>

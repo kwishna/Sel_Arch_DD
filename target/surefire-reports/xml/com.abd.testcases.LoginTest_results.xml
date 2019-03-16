@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="9.105">
+           time="11.495">
   <properties />
   
   
-            <testcase name="test_valid_login" time="9.105" classname="com.abd.testcases.LoginTest" />
+            <testcase name="test_valid_login" time="11.495" classname="com.abd.testcases.LoginTest" />
       
 </testsuite>

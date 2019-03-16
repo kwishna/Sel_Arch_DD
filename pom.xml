@@ -20,6 +20,11 @@
                    <testFailureIgnore>false</testFailureIgnore>
                    <forkMode>once</forkMode>
                    
+		<!-- 	<configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>4</threadCount>
+                </configuration>	-->
+				   
                    	<properties>
                     	<property>
                         	<name>usedefaultlisteners</name>

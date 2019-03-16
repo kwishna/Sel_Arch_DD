@@ -13,3 +13,4 @@ com\abd\testcases\AmazonTest.class
 com\abd\utilities\ScreenshotUtils.class
 com\abd\utilities\ExcelReader.class
 customexception\WrongSheetNameException.class
+com\abd\utilities\ExcelReader2.class
