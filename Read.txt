@@ -1568,6 +1568,47 @@ Coordinates co = ((Locatable) element).getCoordinates();
 Point p = co.onPage();
 System.out.println("X ::::::::::::::::::: "+p.getX());
 System.out.println("Y ::::::::::::::::::: "+p.getY());
+---------------------------------------------------------------------------------------------
+Capturing Image Of A Particular Element From A Complete Screenshot :
+
+File srcFile = ((TakesScreenshot) driver2).getScreenshotAs(OutputType.FILE);
+		File desFile = new File(System.getProperty("user.dir")+"/screenshot/screenshot.png");
+
+		AndroidElement ele = driver2.findElement(By.id("com.biiteducation.atul.javascript:id/tvTitle"));
+		
+		BufferedImage fullImg = ImageIO.read(srcFile);
+		
+		Point p = ele.getLocation();
+		Dimension d = ele.getSize();
+		int width = ele.getSize().getWidth();
+		int height = ele.getSize().getHeight();
+		
+		BufferedImage element = fullImg.getSubimage(p.getX(), p.getY(), width, height);
+		System.out.println(ImageIO.write(element, "PNG", new File(System.getProperty("user.dir")+"/screenshot/subImage.PNG")));
+		
+		FileUtils.copyFile(srcFile, desFile);
+
+---------------------------------------------------------------------------------------------
+Extracting Text From Image :
+
+File textImage  = new File(System.getProperty("user.dir")+"/screenshot/subImage.PNG");
+		
+		ITesseract tess = new Tesseract();
+		tess.setDatapath(System.getProperty("user.dir"));
+		tess.setLanguage("eng");
+		
+		String textFromImage = null;
+		
+		try {
+				textFromImage = tess.doOCR(textImage);
+				
+			}catch(TesseractException e) {
+				
+				System.err.println(e.getMessage());  
+		}  
+		
+		System.out.println("Extracted Text From Image Is ::: "+textFromImage);
+-----------------------------------------------------------------------------------------------
     
 
 
