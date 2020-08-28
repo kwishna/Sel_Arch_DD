@@ -5,6 +5,7 @@ import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,11 +33,13 @@ public class AmazonTest extends TestBase{
 		
 		driver.navigate().to(or.getProperty("amazonurl"));
 		logger.info("Navigating To Amazon Url"+or.getProperty("amazonurl"));
+		
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.withTimeout(20, TimeUnit.SECONDS)
 				.withMessage("Search For Amazon Logo With ID : "+or.getProperty("logo_ID"))
 				.ignoring(NoSuchElementException.class);
+		
 		logger.info("FluentWait For Amazon Search Box. Though, Not Required");
 		@SuppressWarnings("unused")
 		WebElement searchBox = wait.until(new Function<WebDriver, WebElement>(){
@@ -47,6 +50,7 @@ public class AmazonTest extends TestBase{
 			}
 		});
 		
+				
 //		WebDriverWait webwait = new WebDriverWait(driver, 20);
 //		webwait.until(ExpectedConditions.elementSelectionStateToBe(By.cssSelector(or.getProperty("srchdropdwn_CSS")), true));
 		
